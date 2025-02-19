@@ -1,5 +1,4 @@
 <x-layout>
-<h1> Workopia Jobs </h1>
     <h1>{{ $title }}</h1>
     @if (!empty($jobs))
         <ul>
