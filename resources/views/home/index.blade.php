@@ -1,3 +1,3 @@
-@extends('layout')
-@section('content')
-@endsection
+<x-layout>
+    
+</x-layout>
