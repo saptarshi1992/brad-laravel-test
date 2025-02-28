@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Top_Banner extends Component
+class TopBanner extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class Top_Banner extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.top_-banner');
+        return view('components.top-banner');
     }
 }

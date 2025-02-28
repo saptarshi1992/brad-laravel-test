@@ -13,15 +13,21 @@
   <x-header/>
   @if (request()->is('/'))
   <x-hero>
-    <x-top-banner>
-      
+   
   </x-hero>
+  <x-top-banner>
+
+  </x-top-banner>
+<x-bottom-banner>
+  
+</x-bottom-banner>
+ 
   @endif
   
     
     <main class="container mx-auto p-4 mt-4">
       {{$slot}}
     </main>
-
+   
 </body>
 </html>
