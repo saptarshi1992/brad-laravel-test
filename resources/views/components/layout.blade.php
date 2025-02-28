@@ -18,9 +18,7 @@
   <x-top-banner>
 
   </x-top-banner>
-<x-bottom-banner>
-  
-</x-bottom-banner>
+
  
   @endif
   

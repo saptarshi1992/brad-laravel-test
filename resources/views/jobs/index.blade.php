@@ -1,9 +1,10 @@
 <x-layout>
-    <h1>{{ $title }}</h1>
+    <h1><b>{{ $title }}</b></h1>
     @if (!empty($jobs))
         <ul>
             @foreach ($jobs as $job)
-                <li>{{ $loop->index }} - {{ $job }}</li>
+                <li><a href = "{{route('jobs.show',$job->id)}}">{{ $job->title }}</a>
+                    {{ $job->description }}</li>
             @endforeach
         </ul>
     @else
