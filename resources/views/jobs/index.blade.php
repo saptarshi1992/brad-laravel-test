@@ -3,8 +3,8 @@
     @if (!empty($jobs))
         <ul>
             @foreach ($jobs as $job)
-                <li><a href = "{{route('jobs.show',$job->id)}}">{{ $job->title }}</a>
-                    {{ $job->description }}</li>
+                <li><b>Title:</b><u><a href = "{{route('jobs.show',$job->id)}}">{{ $job->title }}</a></u>
+                    <p><b>Description:</b>{{ $job->description }}</p></li>
             @endforeach
         </ul>
     @else

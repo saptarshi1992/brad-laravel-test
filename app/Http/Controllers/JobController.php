@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Job;
+use Illuminate\Http\RedirectResponse;
 
 class JobController extends Controller
 {
@@ -35,8 +36,13 @@ class JobController extends Controller
     {
         //
         $title = $request->input('title');
-        $desc = $request->input("desc");
-        return "Title: " . $title . "Job: " . $desc;
+        $description = $request->input("description");
+        Job::create([
+            'title' => $title,
+            'description' => $description
+        ]);
+
+        return redirect()->route('jobs.index');
     }
 
     /**
@@ -45,7 +51,7 @@ class JobController extends Controller
     public function show(Job $job)
     {
         //
-        return view('jobs.show')->with('job', $job); 
+        return view('jobs.show')->with('job', $job);
     }
 
     /**
