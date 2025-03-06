@@ -1,13 +1,12 @@
 <x-layout>
-    <h1><b>{{ $title }}</b></h1>
-    @if (!empty($jobs))
-        <ul>
-            @foreach ($jobs as $job)
-                <li><b>Title:</b><u><a href = "{{route('jobs.show',$job->id)}}">{{ $job->title }}</a></u>
-                    <p><b>Description:</b>{{ $job->description }}</p></li>
-            @endforeach
-        </ul>
-    @else
-        <h1>No Available Jobs</h1>
-    @endif
-</x-layout>
+  <main class="container mx-auto p-4 mt-4">
+   <h2 class="text-center text-3xl mb-4 font-bold border border-gray-300 p-3">{{ $title }}</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      @forelse($jobs as $job)
+      <x-job-card :job="$job"></x-job-card>
+      @empty
+      <p>No jobs found</p>
+      @endforelse
+    </div>
+  </main>
+  </x-layout>
