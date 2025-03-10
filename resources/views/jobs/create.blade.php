@@ -10,35 +10,39 @@
                 <h2 class="text-2xl font-bold mb-6 text-center text-gray-500">
                     Job Info
                 </h2>
-
-                <div class="mb-4">
+               <x-text id="title" name="title" label="Job-Title" placeholder="Software Engineer"/>
+                {{-- <div class="mb-4">
                     <label class="block text-gray-700" for="title">Job Title</label>
                     <input id="title" type="text" name="title"
                         class="w-full px-4 py-2 border rounded focus:outline-none @error('title') border-red-500 @enderror"
-                        placeholder="Software Engineer" value={{old('title')}}>
-                        @error('title')
-                            <p class="text-red-500 text-sm mt-1">{{$message}}</p>
-                        @enderror
-                </div>
+                        placeholder="Software Engineer" value={{ old('title') }}>
+                    @error('title')
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+                </div> --}}
 
                 <div class="mb-4">
                     <label class="block text-gray-700" for="description">Job Description</label>
                     <textarea cols="30" rows="7" id="description" name="description"
                         class="w-full px-4 py-2 border rounded focus:outline-none @error('description') border-red-500 @enderror"
-                        placeholder="We are seeking a skilled and motivated Software Developer to join our growing development team..." value={{old('description')}}></textarea>
-                        @error('description')
-                        <p class="text-red-500 text-sm mt-1">{{$message}}</p>
-                        @enderror
+                        placeholder="We are seeking a skilled and motivated Software Developer to join our growing development team..."
+                        value={{ old('description') }}></textarea>
+                    @error('description')
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
+                
+                <x-text id="salary" name="salary" label="Annual Salary" type="number" placeholder="123456"/>
 
-                <div class="mb-4">
+                {{-- <div class="mb-4">
                     <label class="block text-gray-700" for="salary">Annual Salary</label>
                     <input id="salary" type="number" name="salary"
-                        class="w-full px-4 py-2 border rounded focus:outline-none" placeholder="90000" value={{old('salary')}}>
-                        @error('salary')
-                        <p class="text-red-500 text-sm mt-1">{{$message}}</p>
-                        @enderror
-                </div>
+                        class="w-full px-4 py-2 border rounded focus:outline-none" placeholder="90000"
+                        value={{ old('salary') }}>
+                    @error('salary')
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+                </div> --}}
 
                 <div class="mb-4">
                     <label class="block text-gray-700" for="requirements">Requirements</label>
@@ -52,26 +56,42 @@
                         placeholder="Health insurance, 401k, paid time off"></textarea>
                 </div>
 
-                <div class="mb-4">
+                {{-- <div class="mb-4">
                     <label class="block text-gray-700" for="tags">Tags (comma-separated)</label>
                     <input id="tags" type="text" name="tags"
                         class="w-full px-4 py-2 border rounded focus:outline-none"
                         placeholder="development,coding,java,python" />
-                </div>
+                </div> --}}
+                <x-text id="tags" name="tags" label="Tags (comma-separated)"  placeholder="development, coding, java, python"/>
 
                 <div class="mb-4">
                     <label class="block text-gray-700" for="job_type">Job Type</label>
-                    <select id="job_type" name="job_type" class="w-full px-4 py-2 border rounded focus:outline-none">
-                        <option value="Full-Time" selected>
+                    <select id="job_type" name="job_type" class="w-full px-4 py-2 border rounded focus:outline-none @error('description') border-red-500 @enderror">
+                        <option value="Full-Time" {{ old('job_type') == 'Full-Time' ? 'selected' : '' }}>
                             Full-Time
                         </option>
-                        <option value="Part-Time">Part-Time</option>
-                        <option value="Contract">Contract</option>
-                        <option value="Temporary">Temporary</option>
-                        <option value="Internship">Internship</option>
-                        <option value="Volunteer">Volunteer</option>
-                        <option value="On-Call">On-Call</option>
+                        <option value="Part-Time" {{ old('job_type') == 'Part-Time' ? 'selected' : '' }}>
+                            Part-Time
+                        </option>
+                        <option value="Contract" {{ old('job_type') == 'Contract' ? 'selected' : '' }}>
+                            Contract
+                        </option>
+                        <option value="Temporary" {{ old('job_type') == 'Temporary' ? 'selected' : '' }}>
+                            Temporary
+                        </option>
+                        <option value="Internship" {{ old('job_type') == 'Internship' ? 'selected' : '' }}>
+                            Internship
+                        </option>
+                        <option value="Volunteer" {{ old('job_type') == 'Volunteer' ? 'selected' : '' }}>
+                            Volunteer
+                        </option>
+                        <option value="On-Call" {{ old('job_type') == 'On-Call' ? 'selected' : '' }}>
+                            On-Call
+                        </option>
                     </select>
+                    @error('job_type')
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-4">
@@ -82,39 +102,25 @@
                     </select>
                 </div>
 
-                <div class="mb-4">
+                {{-- <div class="mb-4">
                     <label class="block text-gray-700" for="address">Address</label>
                     <input id="address" type="text" name="address"
                         class="w-full px-4 py-2 border rounded focus:outline-none" placeholder="123 Main St" />
-                </div>
-
-                <div class="mb-4">
-                    <label class="block text-gray-700" for="city">City</label>
-                    <input id="city" type="text" name="city"
-                        class="w-full px-4 py-2 border rounded focus:outline-none" placeholder="Albany" />
-                </div>
-
-                <div class="mb-4">
-                    <label class="block text-gray-700" for="state">State</label>
-                    <input id="state" type="text" name="state"
-                        class="w-full px-4 py-2 border rounded focus:outline-none" placeholder="NY" />
-                </div>
-
-                <div class="mb-4">
-                    <label class="block text-gray-700" for="zipcode">ZIP Code</label>
-                    <input id="zipcode" type="text" name="zipcode"
-                        class="w-full px-4 py-2 border rounded focus:outline-none" placeholder="12201" />
-                </div>
-
+                </div> --}}
+                <x-text id="address" name="address" label="Address" placeholder="123 Main St"/>
+                <x-text id="city" name="city" label="City" placeholder="Kolkata"/>
+                <x-text id="state" name="state" label="State" placeholder="WB"/>
+                <x-text id="zipcode" name="zipcode" label="ZIP Code" placeholder="700008"/>
+                
                 <h2 class="text-2xl font-bold mb-6 text-center text-gray-500">
                     Company Info
                 </h2>
-
-                <div class="mb-4">
+                <x-text id="address" name="address" label="Address" placeholder="123 Main St"/>
+                {{-- <div class="mb-4">
                     <label class="block text-gray-700" for="company_name">Company Name</label>
                     <input id="company_name" type="text" name="company_name"
                         class="w-full px-4 py-2 border rounded focus:outline-none" placeholder="Company name" />
-                </div>
+                </div> --}}
 
                 <div class="mb-4">
                     <label class="block text-gray-700" for="company_description">Company Description</label>
