@@ -31,14 +31,7 @@
                     'On-Call' => 'On-Call',
                 ]"
                     value="{{ old('job_type') }}" />
-                <div class="mb-4">
-                    <label class="block text-gray-700" for="remote">Remote</label>
-                    <select id="remote" name="remote" class="w-full px-4 py-2 border rounded focus:outline-none">
-                        <option value="false">No</option>
-                        <option value="true">Yes</option>
-                    </select>
-                </div>
-
+                <x-select id="remote" name="remote" label="Remote" :options="[0 => 'No', 1 => 'Yes']" />
                 <x-text id="address" name="address" label="Address" placeholder="123 Main St" />
                 <x-text id="city" name="city" label="City" placeholder="Kolkata" />
                 <x-text id="state" name="state" label="State" placeholder="WB" />
